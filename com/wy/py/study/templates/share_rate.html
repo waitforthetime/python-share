@@ -1,0 +1,35 @@
+# -*- coding:utf-8 -*-
+
+<html>
+<head>
+  <title>上海证券交易所-分红信息</title>
+</head>
+<body>
+    <table border=1 rules=rows cellpadding="10%" cellspacing="10%">
+        <tr>
+            <th>股票代码</th>
+            <th>股票名称</th>
+            <th>每股红利</th>
+            <th>当前价格</th>
+            <th>股息率(%)</th>
+            <th>股权登记日</th>
+            <th>除息日</th>
+        </tr>
+        % for item in data:
+        <tr>
+            <td>${item['COMPANY_CODE']}</td>
+            <td>${item['SECURITY_ABBR_A']}</td>
+            <td>${item['DIVIDEND_PER_SHARE1_A']}</td>
+            <td>${item['price']}</td>
+            % if item['rate'] > 2:
+            <td><span style="color: red"><b>${item['rate']}</b></span></td>
+            % else:
+            <td>${item['rate']}</td>
+            % endif
+            <td>${item['DIVIDEND_DATE']}</td>
+            <td>${item['EX_DIVIDEND_DATE_A']}</td>
+        </tr>
+        % endfor
+    </table>
+</body>
+</html>
