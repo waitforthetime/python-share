@@ -10,8 +10,8 @@ logging.basicConfig(level=logging.INFO)
 
 __smtp_server = 'smtp.163.com'
 __smtp_port = 25
-__from_addr = '313799398@163.com'
-__password = 'wangY061504'
+__from_addr = ''
+__password = ''
 
 
 def _format_addr(s):
@@ -32,16 +32,16 @@ def send(txt, to_addr, subject, type='plain'):
 
 def getmsg(txt, to_addr, subject, from_addr=__from_addr, type='plain'):
     msg = text.MIMEText(txt, type, 'utf-8')
-    msg['From'] = _format_addr('王元 <%s>' % from_addr)
-    msg['To'] = _format_addr('王元 <%s>' % to_addr)
+    msg['From'] = _format_addr('from <%s>' % from_addr)
+    msg['To'] = _format_addr('to <%s>' % to_addr)
     msg['Subject'] = Header(subject, 'utf-8').encode()
     return msg
 
 
 def main():
     txt = '<h1>周末过来玩</h1>'
-    to_addr = '313799398@qq.com'
-    subject = '最近分红股票'
+    to_addr = ''
+    subject = ''
     send(txt=txt, to_addr=to_addr, subject=subject, type='html')
 
 if __name__ == '__main__':
