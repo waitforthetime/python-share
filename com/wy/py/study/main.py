@@ -54,7 +54,7 @@ def main():
     data = recent_share_info()
     page = data2temp(name='templates/share_rate.html', data=data)
     logging.info(page)
-    send(txt=page, to_addr='313799398@qq.com', subject='股票分红', type='html')
+    send(txt=page, to_addr='ss@qq.com', subject='ss', type='html')
 
 if __name__ == '__main__':
     main()
